@@ -15,14 +15,27 @@
 <div class="row">
 
 <% @posts.each do |post| %>
-<div class="col-md-3">
+<div class="col-md-4">
 <div class="card mb-4 h-100">
-<%=image_tag post.get_image(150,150),class: "card-image-top"%>
+<%=image_tag post.get_image(200,200),class: "card-image-top"%>
 <div class="card-body">
+<p><i class="fa-regular fa-comment"></i>
+<span class="count<%=post.id%>"><%=post.comments.count %></span>
+<span class="favorites<%=post.id%>">
+<%=render "favorites/favorites",post:post %>
 <p class="card-title"><%=post.knittingname %></p>
 <p class="card-text"><%=post.caption %></p>
 <% if post.user==current_user %>
-<%=link_to "削除",post_path(post.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-danger" %>
+<%=link_to "削除",post_path(post.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-danger mb-2" %>
+<p><button class="btn btn-light" data-toggle="collapse" data-target="#collapseShow" aria-expanded="false" aria-controls="collapseShow">
+▼コメント
+</button></p>
+<div class="collapse" id="collapseShow">
+<div class="card-body">
+<span class="comment<%=post.id%>">
+<%=render "comments/comments",post:post %></span>
+ </div>
+</div>
 <% end %>
 </div>
 </div>

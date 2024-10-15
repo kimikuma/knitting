@@ -1,0 +1,2 @@
+$(".count<%=@post.id%>").html("<%=@post.comments.count %>");
+$(".comment<%=@post.id%>").html("<%= j(render 'comments/comments', post: @post) %>");

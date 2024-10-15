@@ -8,10 +8,21 @@
 <%=link_to post.user.name,user_path(post.user.id) %></div>
 <%=image_tag post.get_image(200,200),class: "card-img-top" %>
 <div class="card-body">
-<h5 class="card-title"><%=post.knittingname %></h5>
-<p class="card-text"><%=post.caption %></p><br>
-<p><%=render 'comments/comments',post:post %></p>
-<p><%=render 'comments/form',post:post,comment:@comment %></p>
+<h5 class="card-title">#<%=post.knittingname %></h5>
+<p class="card-text"><%=post.caption %></p>
+<p><i class="fa-regular fa-comment"></i>
+<span class="count<%=post.id%>"><%=post.comments.count %></span>
+<span class="favorites<%=post.id%>">
+<%=render "favorites/favorites",post:post %></span>
+</p><br>
+<button class="btn btn-light" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+▼コメント
+</button>
+<div class="collapse" id="collapseExample">
+<div class="card-body">
+<p class="comment<%=post.id%>"><%=render 'comments/comments',post:post %></p>
+<p><%=render 'comments/form',post:post,comment:@comment %></p></div>
+</div>
 </div>
 </div>
 <% end %>
