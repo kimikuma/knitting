@@ -1,7 +1,33 @@
+<div class="container">
+<div class="row">
+<div class="col-4 my-4">
 <h3><%=@user.name %></h3>
-<p><%=@user.get_profile_image(50,50) %></p>
+<p><%=image_tag @user.get_profile_image(100,100) %></p>
 <p><%=@user.introduction %></p>
+<% if @user==current_user %>
+<%=link_to edit_user_path(@user),class: "btn btn-outline-secondary" do %>
+<i class="fa-solid fa-user-gear"></i>
+<% end %>
+<% end %>
+
+</div>
+</div>
+<div class="row">
+
 <% @posts.each do |post| %>
-<p><%=post.knittingname %></p>
-<p><%=post.get_image(100,100)%></p>
-<p><%=post.caption %></p>
+<div class="col-md-3">
+<div class="card mb-4 h-100">
+<%=image_tag post.get_image(150,150),class: "card-image-top"%>
+<div class="card-body">
+<p class="card-title"><%=post.knittingname %></p>
+<p class="card-text"><%=post.caption %></p>
+<% if post.user==current_user %>
+<%=link_to "削除",post_path(post.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-danger" %>
+<% end %>
+</div>
+</div>
+</div>
+<% end %>
+
+</div>
+</div>

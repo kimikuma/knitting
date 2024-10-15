@@ -1,10 +1,11 @@
 <h3>Edit User</h3>
-<%=form_with model:@user,user_path(@user),method: :patch do |f| %>
+<%=form_with model:@user,url: user_path(@user.id),method: :patch do |f| %>
 <h5>Name</h5>
 <%=f.text_field:name %>
 <h5>image</h5>
 <%=f.file_field:profile_image,accept: "image/*" %>
 <h5>caption</h5>
-<%=f.text_area:caption %>
+<%=f.text_area:introduction %>
 <%=f.submit "update" %>
+<% end %>
 

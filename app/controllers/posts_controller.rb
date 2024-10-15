@@ -14,10 +14,18 @@ class PostsController < ApplicationController
   def show
     @post=Post.find(params[:id])
     @user=@post.user
+
   end
 
   def index
     @posts=Post.all
+    @comment=Comment.new
+  end
+
+  def destroy
+    @post=Post.find(params[:id])
+    @post.destroy
+    redirect_to request.referer
   end
 
   private

@@ -10,9 +10,55 @@
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
       <li>
-        <%=link_to
+        <%=link_to list_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-newspaper"></i>list
+         <% end %>
+
       </li>
+      <li>
+        <%=link_to posts_path,class: 'nav-link text-light' do %>
+        <i class="fa-regular fa-image"></i>index
+        <% end %>
+      </li>
+      <li>
+        <%=link_to new_post_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-plus"></i>post
+        <% end %>
+      </li>
+      <li>
+        <%=link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+       <i class="fa-solid fa-house-user"></i>user
+        <% end %>
+      </li>
+      <li>
+        <%=link_to destroy_user_session_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-right-from-bracket"></i>log out
+        <% end %>
+      </li>
+      <% else %>
+      <li>
+        <%=link_to root_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-house"></i>home
+        <% end %>
+      </li>
+      <li>
+        <%=link_to list_path,class: 'nav-link text-light' do %>
+        <i class="fa-regular fa-image"></i>list
+        <% end %>
+      </li>
+      <li>
+        <%=link_to new_user_session_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-right-to-bracket"></i>sign in
+        <% end %>
+      </li>
+      <li>
+        <%=link_to new_user_registration_path,class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-user-plus"></i>sign up
+        <% end %>
+      </li>
+      <% end %>
     </ul>
+
     </div>
   </nav>
 </header>
