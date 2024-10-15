@@ -1,11 +1,19 @@
-
-<h3>Datail</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+<h3 class="my-3">Datail</h3>
+<p class="mt-2">Name</p>
 <p><%=@post.user.name %></p>
+<p class="mt-2">Knittingname</p>
 <p><%=@post.knittingname %></p>
+<p class="mt-2">Image</p>
 <p><%=image_tag @post.get_image(100,100) %></p>
+<p class="mt-2">Caption</p>
 <p><%=@post.caption %></p>
+</div>
+</div>
+</div>
 
 
-  
 
 
