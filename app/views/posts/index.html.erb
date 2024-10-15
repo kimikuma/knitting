@@ -1,0 +1,7 @@
+<h3>Post Index</h3>
+<% @posts.each do |post| %>
+<%=post.user.name %>
+<%=post.knittingname %>
+<%=image_tag post.get_image(100,100) %>
+<%=post.caption %>
+<% end %>

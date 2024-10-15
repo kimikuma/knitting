@@ -1,0 +1,7 @@
+<h3><%=@user.name %></h3>
+<p><%=@user.get_profile_image(50,50) %></p>
+<p><%=@user.introduction %></p>
+<% @posts.each do |post| %>
+<p><%=post.knittingname %></p>
+<p><%=post.get_image(100,100)%></p>
+<p><%=post.caption %></p>

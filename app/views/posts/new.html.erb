@@ -1,0 +1,10 @@
+<h3>New Post</h3>
+<%=form_with model:@post do |f| %>
+<h5>knitting name</h5>
+<%=f.text_field:knittingname %>
+<h5>image</h5>
+<%=f.file_field:image,accept: "image/*" %>
+<h5>caption</h5>
+<%=f.text_area:caption %>
+<%=f.submit "post"%>
+<% end %>
