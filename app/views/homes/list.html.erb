@@ -1,7 +1,7 @@
-<div class="container">
-  <h1>List</h1>
+<div class="container-fluid">
+   <h2>welcome</h2>
   <div class="row">
-    <div class="col-5">
+    <div class="col-12">
       <% if user_signed_in? %>
       <%=form_with url: search_path,method: :get do |f| %>
       <%=f.text_field :word %>
@@ -10,15 +10,79 @@
       <%=f.submit "検索" %>
       <% end %>
       <% end %>
-      <p>ゾウ</p>
-      <p>くま</p>
-      <p>ネコ</p>
-      <p>キリン</p>
-      <p>イヌ</p>
+      </div>
     </div>
-    <div class="col-7">
-      <h2>welcome</h2>
-      <p>像の上手な作りかた</p>
+      <div class="row">
+        <div class="col-3 mx-auto mt-5">
+          <ul>
+      <li class="mb-4"><%=link_to 'ゾウ','#elephant' %></li>
+      <li class="mb-4"><%=link_to 'くま','#bear' %></li>
+      <li class="mb-4"><%=link_to 'ネコ','#cat' %></li>
+      <li class="mb-4"><%=link_to 'きりん','#giraffe' %></li>
+      <li class="mb-4"><%=link_to 'いぬ','#dog' %></li>
+      </ul>
+    </div>
+
+    <div class="col-9 mt-5 mx-auto">
+     <h3>編み物の世界へようこそ</h3>
+     <%=link_to "#elephant",class: "btn btn-primary mb-3" do %>
+     <i class="fa-solid fa-republican"></i>
+     <% end %>
+     <%=link_to "#bear",class: "btn btn-primary mb-3" do %>
+     <i class="fa-solid fa-hippo"></i>
+     <% end %>
+     <%=link_to "#cat",class: "btn btn-primary mb-3" do %>
+     <i class="fa-solid fa-cat"></i>
+     <% end %>
+     <%=link_to "#giraffe",class: "btn btn-primary mb-3" do %>
+     <i class="fa-solid fa-horse"></i>
+     <% end %>
+     <%=link_to "#dog",class: "btn btn-primary mb-3" do %>
+     <i class="fa-solid fa-dog"></i>
+     <% end %>
+     <div class="section1">
+       <h3 id="elephant">ゾウさんの作り方</h3>
+       <%=image_tag "ゾウ.jpg" %>
+       <ul class="mt-4">使用糸
+       <li>A:ブライトオレンジ:0.7玉</li>
+       <li>Bピーコックブルー:0.7玉</li>
+        </ul>
+     </div>
+     <div class="section2 mt-5">
+       <h3 id="bear">くまさんの作り方</h3>
+       <%=image_tag "くまさん.jpg" %>
+       <ul class="mt-4">使用糸
+       <li>ハマナカラブボニー（40玉巻） 水色31g:生成り</li>
+
+        </ul>
+     </div>
+     <div class="section3 mt-5">
+       <h3 id="cat">ねこさんの作り方</h3>
+       <%=image_tag "ねこさん.jpg",size: "400x300" %>
+       <ul class="mt-4">使用糸
+       <li>36:ハマナカピッコロ　黒7g:生成り4g</li>
+       <li>37:ハマナカピッコロ　薄茶7g:こげ茶1g:生成り少々</li>
+       <li>38:ハマナカピッコロ　グレー1g:生成り7g</li>
+        </ul>
+     </div>
+     <div class="section4 mt-5">
+       <h3 id="giraffe">きりんさんの作り方</h3>
+       <%=image_tag "きりんさん.jpg" %>
+       <ul class="mt-4">使用糸
+       <li>並太毛糸　白</li>
+       <li>並太毛糸　黄色</li>
+       <li>並太毛糸　こげ茶</li>
+        </ul>
+     </div>
+     <div class="section5 mt-5">
+       <h3 id="dog">いぬさんの作り方</h3>
+       <%=image_tag "いぬさん.jpg",size: "400x300" %>
+       <ul class="mt-4">使用糸
+       <li>ハマナカピッコロ　からし7g</li>
+       <li>ハマナカピッコロ　生成り3g</li>
+       <li>ハマナカピッコロ　緑1g</li>
+        </ul>
+     </div>
     </div>
   </div>
-</div>
+ </div>
