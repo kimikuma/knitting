@@ -12,9 +12,22 @@ class Post < ApplicationRecord
     end
       image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def favorited_by?(user)
     favorites.exists?(user_id:user.id)
-  end   
+  end
+
+
+  def self.search_for(search,word)
+    if search=="perfect"
+      Post.where(knittingname: word)
+    elsif search=="forward"
+      Post.where("knittingname LIKE?",word+"%")
+    elsif search=="backward"
+      Post.where("knittingname LIKE?","%"+word)
+    else search=="partial"
+      Post.where("knittingname LIKE?","%"+word+"%")
+    end
+  end
 
 end

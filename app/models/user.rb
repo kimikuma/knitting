@@ -9,6 +9,12 @@ class User < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :favorites,dependent: :destroy
 
+  has_many:relationships,class_name: "Relationship",foreign_key: :follower_id,dependent: :destroy
+  has_many:followings,through: :relationships,source: :followed
+
+  has_many:reverse_relationships,class_name: "Relationship",foreign_key: :followed_id,dependent: :destroy
+  has_many:followers,through: :reverse_relationships,source: :follower
+
   has_one_attached :profile_image
 
   def get_profile_image(width,height)
@@ -18,5 +24,32 @@ class User < ApplicationRecord
     end
       profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
+
+  def follow(user)
+    relationships.create(followed_id: user.id)
+  end
+
+  def unfollow(user)
+    relationships.find_by(followed_id: user.id).destroy
+  end
+
+  def following?(user)
+    followings.include?(user)
+  end
+
+  def self.search_for(search,word)
+    if search=="perfect"
+      User.where(name: word)
+    elsif search=="forward"
+      User.where("name LIKE?",word + "%")
+    elsif search=="backward"
+      User.where("name LIKE?","%" + word)
+    else search=="partial"
+      User.where("name LIKE?","%" + word + "%")
+    end
+  end
+
+
 
 end

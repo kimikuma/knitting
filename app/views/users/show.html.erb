@@ -8,39 +8,35 @@
 <%=link_to edit_user_path(@user),class: "btn btn-outline-secondary" do %>
 <i class="fa-solid fa-user-gear"></i>
 <% end %>
+<% else %>
+<span class="follow">
+<%=render "relationships/follow",user: @user %>
+</span>
 <% end %>
+follow:<%=link_to @user.followings.count,user_followings_path(@user) %>
+follower:<%=link_to @user.followers.count,user_followers_path(@user) %>
 
 </div>
 </div>
 <div class="row">
 
 <% @posts.each do |post| %>
-<div class="col-md-4">
+<div class="col-md-2">
 <div class="card mb-4 h-100">
-<%=image_tag post.get_image(200,200),class: "card-image-top"%>
+<%=image_tag post.get_image(100,100),class: "card-image-top img-tumbbnail h-50"%>
 <div class="card-body">
 <p><i class="fa-regular fa-comment"></i>
 <span class="count<%=post.id%>"><%=post.comments.count %></span>
 <span class="favorites<%=post.id%>">
-<%=render "favorites/favorites",post:post %>
-<p class="card-title"><%=post.knittingname %></p>
+<%=render "favorites/favorites",post:post %></span>
+<p class="card-title">#<%=post.knittingname %></p>
 <p class="card-text"><%=post.caption %></p>
 <% if post.user==current_user %>
 <%=link_to "削除",post_path(post.id),method: :delete,"data-confirm"=>"本当に削除しますか？",class: "btn btn-danger mb-2" %>
-<p><button class="btn btn-light" data-toggle="collapse" data-target="#collapseShow" aria-expanded="false" aria-controls="collapseShow">
-▼コメント
-</button></p>
-<div class="collapse" id="collapseShow">
-<div class="card-body">
-<span class="comment<%=post.id%>">
-<%=render "comments/comments",post:post %></span>
+<% end %>
  </div>
 </div>
-<% end %>
-</div>
-</div>
-</div>
-<% end %>
 
 </div>
+<% end %>
 </div>

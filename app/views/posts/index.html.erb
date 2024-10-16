@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 mx-auto">
-<h3 class="my-3">Post Index</h3>
+  <div class="col-6 mx-auto">
+<h2 class="my-3">Post Index</h2>
+</div>
+</div>
+<div class="row">
 <% @posts.each do |post| %>
-<div class="card mb-3" style="width: 25rem;">
+<div class="col-md-4">
+<div class="card mb-4">
   <div class="card-header"><%=image_tag post.user.get_profile_image(50,50),class: "rounded-circle" %>
 <%=link_to post.user.name,user_path(post.user.id) %></div>
-<%=image_tag post.get_image(200,200),class: "card-img-top" %>
+<%=image_tag post.get_image(200,200),class: "card-img-top card-image-top img-tumbbnail" %>
 <div class="card-body">
 <h5 class="card-title">#<%=post.knittingname %></h5>
 <p class="card-text"><%=post.caption %></p>
@@ -25,7 +29,8 @@
 </div>
 </div>
 </div>
-<% end %>
 </div>
+<% end %>
+
 </div>
 </div>

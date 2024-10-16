@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <% if @model=="user" %>
+      <h4>Users search for <%=@word %></h4>
+     <% @users.each do |user| %>
+      <table class="table table-border-bottom">
+        <tr>
+          <td class="px-3 py-3">
+            <%=image_tag user.get_profile_image(50,50)%>
+          </td>
+          <td class="py-3">
+            <%=link_to user.name,user_path(user) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <% else %>
+      <h4>Posts search for <%=@word %></h4>
+      <% @posts.each do |post| %>
+
+      <table class="table table-border-bottom">
+        <tr>
+          <td class="px-3 py-3">
+            <%=image_tag post.get_image(50,50)%>
+          </td>
+          <td class="py-3">
+            <%=link_to post.knittingname,post_path(post)%>
+          </td>
+          <td class="py-3">
+            <%=post.caption %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
