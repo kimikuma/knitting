@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   has_many :comments,dependent: :destroy
   has_many :favorites,dependent: :destroy
 
-  validates :knittingname,pressence: true
-  validates :caption,presence: true,length: {in:5..30}
-  validates :image,presence: true
+  validates :knittingname,presence:true
+  validates :caption,presence:true,length:{in:5..30}
+  validates :image,presence:true
 
   has_one_attached :image
 

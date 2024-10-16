@@ -2,6 +2,7 @@
 <div class="row">
   <div class="col-6 mx-auto my-4">
 <h3>New Post</h3>
+<%=render "layouts/error",post: @post %>
 <%=form_with model:@post do |f| %>
 <h5 class="mt-3">knitting name</h5>
 <%=f.text_field:knittingname %>
