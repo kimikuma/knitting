@@ -9,7 +9,7 @@
           <%=image_tag user.get_profile_image(50,50),class: "rounded-circle" %>
           </td>
           <td class="py-3">
-            <%=link_to user.name,user_path(user)%>
+            <%=link_to user.name,user_path(user) %>
           </td>
         </tr>
         <% end %>

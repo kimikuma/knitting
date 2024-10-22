@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts=Post.page(params[:page]).order(created_at: :desc)
+    @posts=Post.all.page(params[:page]).per(6).order(created_at: :desc)
     @comment=Comment.new
   end
 

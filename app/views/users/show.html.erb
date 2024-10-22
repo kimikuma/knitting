@@ -13,9 +13,11 @@
 <%=render "relationships/follow",user: @user %>
 </span>
 <% end %>
-follow:<%=link_to @user.followings.count,user_followings_path(@user) %>
-follower:<%=link_to @user.followers.count,user_followers_path(@user) %>
-
+<p><span id="followcount">follow:<%=link_to @user.followings.count,user_followings_path(@user) %></span>
+<span id="followercount">follower:<%=link_to @user.followers.count,user_followers_path(@user) %></span></p>
+<% if @user!=current_user&&current_user.following?(@user)&&@user.following?(current_user)%>
+<%=link_to "chat",chat_path(@user.id),class: "btn btn-outline-info btn-sm" %>
+<% end %>
 </div>
 </div>
 <div class="row">
