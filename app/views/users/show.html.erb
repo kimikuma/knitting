@@ -18,6 +18,7 @@
 <% if @user!=current_user&&current_user.following?(@user)&&@user.following?(current_user)%>
 <%=link_to "chat",chat_path(@user.id),class: "btn btn-outline-info btn-sm" %>
 <% end %>
+<i class="fa-solid fa-eye"></i><%=@user.view_count %>
 </div>
 </div>
 <div class="row">

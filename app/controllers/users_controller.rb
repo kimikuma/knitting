@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @posts=@user.posts
+    @user.increment!(:view_count)
   end
 
   def edit
