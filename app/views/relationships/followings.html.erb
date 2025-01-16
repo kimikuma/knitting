@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6">
       <table>
-        <% @users.each do |user| %>
+       <% @users.each do |user| %>
         <tr>
           <td class="px-3 py-3">
           <%=image_tag user.get_profile_image(50,50),class: "rounded-circle" %>
@@ -12,7 +12,7 @@
             <%=link_to user.name,user_path(user) %>
           </td>
         </tr>
-        <% end %>
+       <% end %>
       </table>
     </div>
   </div>

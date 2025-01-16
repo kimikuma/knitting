@@ -1,36 +1,38 @@
 <div class="container">
   <div class="row">
-  <div class="col-6 mx-auto">
-<h2 class="my-3">Post Index</h2>
-</div>
-</div>
-<div class="row">
-<% @posts.each do |post| %>
-<div class="col-md-4">
-<div class="card mb-4">
-  <div class="card-header"><%=image_tag post.user.get_profile_image(50,50),class: "rounded-circle" %>
-<%=link_to post.user.name,user_path(post.user.id) %></div>
-<%=image_tag post.get_image(200,200),class: "card-img-top card-image-top img-tumbbnail" %>
-<div class="card-body">
-<h5 class="card-title">#<%=post.knittingname %></h5>
-<p class="card-text"><%=post.caption %></p>
-<p><i class="fa-regular fa-comment"></i>
-<span class="count<%=post.id%>"><%=post.comments.count %></span>
-<span class="favorites<%=post.id%>">
-<%=render "favorites/favorites",post:post %></span>
-</p><br>
-<button class="btn btn-light" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-▼コメント
-</button>
-<div class="collapse" id="collapseExample">
-<div class="card-body">
-<p class="comment<%=post.id%>"><%=render 'comments/comments',post:post %></p>
-<p><%=render 'comments/form',post:post,comment:@comment %></p></div>
-</div>
-</div>
-</div>
-</div>
-<% end %>
-<%=paginate @posts %>
-</div>
+   <div class="col-6 mx-auto">
+     <h2 class="my-3">Post Index</h2>
+   </div>
+  </div>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header"><%=image_tag post.user.get_profile_image(50,50),class: "rounded-circle" %>
+            <%=link_to post.user.name,user_path(post.user.id) %>
+          </div>
+          <%=image_tag post.get_image(200,200),class: "card-img-top card-image-top img-tumbbnail" %>
+          <div class="card-body">
+            <h5 class="card-title">#<%=post.knittingname %></h5>
+            <p class="card-text"><%=post.caption %></p>
+            <p>
+              <i class="fa-regular fa-comment"></i>
+              <span class="count<%=post.id%>"><%=post.comments.count %></span>
+              <span class="favorites<%=post.id%>"><%=render "favorites/favorites",post:post %></span>
+            </p><br>
+            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              ▼コメント
+            </button>
+            <div class="collapse" id="collapseExample">
+              <div class="card-body">
+                <p class="comment<%=post.id%>"><%=render 'comments/comments',post:post %></p>
+                <p><%=render 'comments/form',post:post,comment:@comment %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%=paginate @posts %>
+  </div>
 </div>

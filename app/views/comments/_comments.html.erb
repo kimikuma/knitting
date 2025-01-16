@@ -1,9 +1,10 @@
 <% post.comments.each do |comment| %>
-
-<p><%=image_tag comment.user.get_profile_image(50,50) %>
-<%=comment.comment %>
-<% if comment.user==current_user %>
-<%=link_to "削除",post_comment_path(post.id,comment.id),method: :delete,class: "btn btn-danger",remote: true  %>
-<% end %></p>
-<%=comment.user.name %>
+  <p>
+    <%=image_tag comment.user.get_profile_image(50,50) %>
+    <%=comment.comment %>
+    <% if comment.user==current_user %>
+     <%=link_to "削除",post_comment_path(post.id,comment.id),method: :delete,class: "btn btn-danger",remote: true  %>
+    <% end %>
+  </p>
+  <%=comment.user.name %>
 <% end %>

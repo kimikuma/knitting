@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=Post.new(post_params)
-    @post.user_id=current_user.id
+    @post=current_user.posts.new(post_params)
     @post.save
     redirect_to post_path(@post)
   end
@@ -14,7 +13,6 @@ class PostsController < ApplicationController
   def show
     @post=Post.find(params[:id])
     @user=@post.user
-
   end
 
   def index
@@ -31,6 +29,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption,:image,:knittingname)
+    params.require(:post).permit(:caption, :image, :knittingname)
   end
 end

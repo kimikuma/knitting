@@ -1,23 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-5 mx-auto">
-<h3 class="my-3">Datail</h3>
-<div class="border border-secondary px-5 py-5">
-<div class="mb-3 px-2 border border-3 border-light border-rounded">
-<h5 class="mt-2">Name</h5>
-<p><%=link_to @post.user.name,user_path(@post.user) %></p></div>
-<div class="mb-3 px-2 border border-3 border-light border-rounded">
-<h5 class="mt-2">Knittingname</h5>
-<p><%=@post.knittingname %></p></div>
-<div class="mb-3 px-2 border border-3 border-light border-rounded">
-<h5 class="mt-2">Image</h5>
-<p><%=image_tag @post.get_image(100,100) %></p></div>
-<div class="mb-3 px-2 border border-3 border-light border-rounded">
-<h5 class="mt-2">Caption</h5>
-<p><%=@post.caption %></p>
-</div>
-</div>
-</div>
+      <h3 class="my-3">Datail</h3>
+      <div class="border border-secondary px-5 py-5">
+        <div class="mb-3 px-2 border border-3 border-light border-rounded">
+          <h5 class="mt-2">Name</h5>
+          <p><%=link_to @post.user.name,user_path(@post.user) %></p>
+        </div>
+        <div class="mb-3 px-2 border border-3 border-light border-rounded">
+          <h5 class="mt-2">Knittingname</h5>
+          <p><%=@post.knittingname %></p>
+        </div>
+        <div class="mb-3 px-2 border border-3 border-light border-rounded">
+          <h5 class="mt-2">Image</h5>
+          <p><%=image_tag @post.get_image(100,100) %></p>
+        </div>
+        <div class="mb-3 px-2 border border-3 border-light border-rounded">
+          <h5 class="mt-2">Caption</h5>
+          <p><%=@post.caption %></p>
+        </div>
+      </div>
+    </div>
+  </div>  
 </div>
 
 

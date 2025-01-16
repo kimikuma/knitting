@@ -1,65 +1,66 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-    <h1 class="text-white"><%=link_to url: "/" do %>
-    <i class="fa-solid fa-mitten"></i>Knit
-    <% end %></h1>
+   <div class="container">
+    <h1 class="text-white">
+      <%=link_to url: "/" do %>
+       <i class="fa-solid fa-mitten"></i>Knit
+      <% end %>
+    </h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" date-target="#navbarNavDropdaown" aria-controls="navbarNavDropdaown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdaown">
-    <ul class="navbar-nav ml-auto">
+     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-      <li>
+       <li>
         <%=link_to list_path,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-newspaper"></i>list
-         <% end %>
-
-      </li>
-      <li>
+         <i class="fa-solid fa-newspaper"></i>list
+        <% end %>
+       </li>
+       <li>
         <%=link_to posts_path,class: 'nav-link text-light' do %>
-        <i class="fa-regular fa-image"></i>index
+         <i class="fa-regular fa-image"></i>index
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to new_post_path,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-plus"></i>post
+         <i class="fa-solid fa-plus"></i>post
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to user_path(current_user.id),class: 'nav-link text-light' do %>
-       <i class="fa-solid fa-house-user"></i>user
+         <i class="fa-solid fa-house-user"></i>user
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to destroy_user_session_path,method: :delete,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-right-from-bracket"></i>log out
+         <i class="fa-solid fa-right-from-bracket"></i>log out
         <% end %>
-      </li>
+       </li>
       <% else %>
-      <li>
+       <li>
         <%=link_to root_path,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-house"></i>home
+         <i class="fa-solid fa-house"></i>home
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to list_path,class: 'nav-link text-light' do %>
-        <i class="fa-regular fa-image"></i>list
+         <i class="fa-regular fa-image"></i>list
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to new_user_session_path,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-right-to-bracket"></i>sign in
+         <i class="fa-solid fa-right-to-bracket"></i>sign in
         <% end %>
-      </li>
-      <li>
+       </li>
+       <li>
         <%=link_to new_user_registration_path,class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-user-plus"></i>sign up
+         <i class="fa-solid fa-user-plus"></i>sign up
         <% end %>
-      </li>
+       </li>
       <% end %>
-    </ul>
-     </div>
+     </ul>
     </div>
+   </div>
   </nav>
 </header>
