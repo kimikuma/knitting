@@ -1,24 +1,27 @@
-# README
+# knitting<!--ここにアプリ名を入力-->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ  
+編み物投稿サイト
 
-Things you may want to cover:
+​
+### ターゲットユーザ  
+* 編み物が好きな人 
+* 編み物に興味がある人 
 
-* Ruby version
+​
+### 主な利用シーン  
+* 編みたいものの作り方を知りたい時 
+* 編んだものを投稿したい時  
+* 編み物を参考にしたい時
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+​
+## 開発環境
+- OS：Mac
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+​
+## コメント
+プログラミングスクールで学習中に学んだことを実践するために練習で作成しました。
+投稿サイトの機能を学び、投稿サイトの機能を使用して作成しました。
